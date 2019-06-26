@@ -7,7 +7,7 @@ bot.start(ctx => {
     if (from.id == ' '){
         ctx.reply(`Bem vindo mestre ${from.first_name}!`)
     } else {
-        ctx.reply(`Só falo com meu mestre!`)
+        ctx.reply(`${from.first_name} eu só falo com meu mestre!`)
     }    
 })
 

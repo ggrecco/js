@@ -59,3 +59,8 @@ console.log(area(2))
 console.log(area())
 console.log(area(2, 3, 17, 22, 44))
 console.log(area(5, 5))
+
+
+//testando função arrow
+const f1 = () => console.log('Teste da chamada para a função ARROW')
+f1()

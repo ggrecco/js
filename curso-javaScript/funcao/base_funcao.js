@@ -21,3 +21,15 @@ run(function () { console.log('Executando ... ')})
 //Armazenada em um array
 const array = [function (a, b) { return a + b}, fun1, fun2]
 console.log(array[0](2, 3))
+
+
+//retorna/contem uma função(função dentro da função)
+function soma(a, b){
+    return function(c){
+        console.log(a + b + c)
+    }
+}
+//dois parenteses pois precisa de valor da primeira e segunda função
+soma(2,3)(4) 
+const chamaDenovo = soma(2, 3)
+chamaDenovo(15)

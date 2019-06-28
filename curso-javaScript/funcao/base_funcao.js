@@ -1,7 +1,7 @@
 // função de forma literal
 function fun1() { }
 
-//função anonima
+//função anonima ou seja função que é instanciada em uma constante
 const fun2 = function () { }
 
 const obj = {}
@@ -14,3 +14,6 @@ function run(fun){
 }
 
 run(function () { console.log('Executando ... ')})
+
+//Armazenada em um array
+const array = [function (a, b) { return a + b}, fun1, fun2]

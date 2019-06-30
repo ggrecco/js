@@ -25,7 +25,9 @@ const pessoa = {
     },
     testar2: function(){
         console.log('Abemos ": function()"')
-    }
+    },
+    testar3: () => imprimirResultado(1, 5),
+    testar4: () => imprimirResultado(10, 1, diminui)
 }
 
 pessoa.falar()
@@ -33,3 +35,5 @@ pessoa.comentar()
 pessoa.somar(1, 2)
 pessoa.testar1()
 pessoa.testar2()
+pessoa.testar3()
+pessoa.testar4()

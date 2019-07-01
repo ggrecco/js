@@ -7,6 +7,8 @@ const pessoa = {
 }
 
 pessoa.falar()
+
+
 const falar = pessoa.falar
 falar() //gera conflito entre os paradigams de OO e funcional
 

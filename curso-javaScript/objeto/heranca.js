@@ -67,3 +67,65 @@ console.log(ferrari.status()) // está limitado pela const ferrari
 volvo.acelerarMais(260)
 console.log(volvo.status())
 
+console.log('-----Object.create------')
+const pai2 = { nome: 'Pedro', corCabelo: 'Preto' }
+const filho1 = Object.create(pai2)
+filho1.nome = 'Rafael'
+console.log(filho1)
+console.log(filho1.corCabelo)
+
+const filho2 = Object.create(pai2, {
+    nome: { value: 'Bia', writable: false, enumerable: true}
+})
+
+console.log(filho2.nome)
+filho2.nome = 'Carla'
+console.log(`${filho2.nome} tem um cabelo ${filho2.corCabelo}`)
+
+for(let key in filho2) {
+    filho2.hasOwnProperty(key) ?
+        console.log(key) : console.log(`Por Herança: ${key}`)
+}
+
+function MeuObjeto() {}
+console.log(MeuObjeto.prototype)
+
+const obj1 = new MeuObjeto
+const obj2 = new MeuObjeto
+console.log(obj1.__proto__ === obj2.__proto__) // apontam para o mesmo objeto
+console.log(MeuObjeto.prototype === obj1.__proto__)
+
+MeuObjeto.prototype.nome = 'Anônimo teste'
+MeuObjeto.prototype.falar = function () {
+    console.log(`Bom dia! Meu nome é ${this.nome}!`)
+}
+
+obj1.falar()
+obj2.nome = 'Rafael'
+obj2.falar()
+
+const obj3 = {}
+obj3.__proto__ = MeuObjeto.prototype
+obj3.nome = 'TESTE'
+obj3.falar()
+
+// reverte o array do prototype
+String.prototype.reverse = function(){
+    return this.split('').reverse().join('')
+}
+
+console.log('Escola de teste'.reverse())
+
+Array.prototype.first = function() {
+    return this[0]
+}
+
+console.log([1, 2, 3].first())
+console.log(['a', 'A', 'b', 'B'].first())
+
+//JAMAIS SOBRESCREVER METODOS QUE JÁ EXISTAM
+// String.prototype.toString = function() {
+//     return 'E AGORA F!@#'
+// }
+// console.log('Escola de teste'.reverse())
+

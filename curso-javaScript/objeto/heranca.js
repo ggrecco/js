@@ -18,7 +18,7 @@ console.log(ferrari.prototype)
 
 // Cadeia de protótipos (prototype chain) avo => pai => filho
 console.log('\n--------herança----------')
-Object.prototype.attr0 = 'hahah' // nunca fazer isso
+Object.prototype.attr0 = 'hahah' // nunca fazer isso apenas se for necessário 
 const avo = { attr1 : 'A'}
 const pai = { __proto__: avo, attr2: 'B', attr3: 'Z'}
 const filho = { __proto__: pai, attr3: 'C'}

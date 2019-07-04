@@ -129,3 +129,47 @@ console.log(['a', 'A', 'b', 'B'].first())
 // }
 // console.log('Escola de teste'.reverse())
 
+function Aula(nome, videoID) {
+    this.nome = nome
+    this.videoID = videoID
+}
+
+const aula1 = new Aula('Bem Vindo', 123)
+const aula2 = new Aula('Até Breve', 456)
+console.log(aula1, aula2)
+
+// simulando o new
+function novo(f, ...params) { // ... simboliza que todos os parametros serão concatenados em um array
+    const obj = {}
+    obj.__proto__ = f.prototype
+    f.apply(obj, params)
+    return obj
+}
+
+const aula3 = novo(Aula, 'Bem Vindo', 123)
+const aula4 = novo(Aula, 'Até Breve', 456)
+console.log(aula3, aula4)
+
+// Object.preventExtensions
+// Não permite expandir, mas permite excluir o que existe
+const produto = Object.preventExtensions({
+    nome: 'Qualquer', preco: 19.9, tag: 'Promoção'
+})
+console.log('--------preventExtensions----------')
+console.log('Extensível:', Object.isExtensible(produto))
+produto.nome = 'Teste'
+produto.descricao = 'Borracha'
+delete produto.tag
+console.log(produto)
+
+// Object.seal
+// não permite excluir ou adicionar, apenas modificar
+const pessoa = {nome: 'Juliana', idade: 35}
+Object.seal(pessoa)
+console.log('--------Seal----------')
+console.log('Selado:', Object.isSealed(pessoa))
+pessoa.sobrenome = 'Silvia'
+delete pessoa.nome
+pessoa.idade = 29
+console.log(pessoa)
+

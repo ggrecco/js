@@ -60,7 +60,8 @@ const carrinho = [
 
 // Retorna o aray apenas com os preços
 
-let precos = JSON.parse(carrinho)
-precos = precos.map(precos.preco)
-console.log('-----desafio----')
-console.log(typeof precos)
+const paraObjeto = json =>  JSON.parse(json)
+const apenasPreco = produto => produto.preco 
+
+resultado = carrinho.map(paraObjeto).map(apenasPreco)
+console.log(resultado)

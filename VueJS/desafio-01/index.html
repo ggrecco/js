@@ -6,10 +6,12 @@
     
     <!-- 2) Exiba sua idade multiplicada por 3 -->
     <p>{{ mult3(idade) }}</p>
+    <p>{{ idade * 3 }} - professor</p>
     
     <!-- 3) Chame uma função para exibir um número randomico
         entre 0 and 1 (Math.random()) -->
     <p> {{ random()}} </p>
+    <p> {{ Math.random() }} - professor </p>
     
     <!-- 4) Procure uma imagem no google e exiba na tag img 
         fazendo o binding no atributo "src" -->
@@ -19,7 +21,7 @@
     
     <!-- 5) Inicialize o input com o seu nome (use o atributo "value") -->
     <div>
-        <input type="text" v-on:input="alterarNome">
+        <input type="text" v-on:input="alterarNome" v-bind:value='nome'>
     </div>
 </div>
 <script src="app.js"></script>

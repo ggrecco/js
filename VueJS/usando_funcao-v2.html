@@ -1,0 +1,27 @@
+<script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <input type="text" v-on:input="alterarTitulo">
+    <p v-once>{{ saudacao() }}</p>
+    <p >{{ titulo }}</p>
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p v-html='linkHtml'></p>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: "Usando VueJS2!",
+            link: 'http://www.google.com.br',
+            linkHtml: '<a href="http://www.google.com.br">Google</a>'
+        },
+        methods:{
+            saudacao: function(){
+                return this.titulo
+            },
+            alterarTitulo(event){
+                this.titulo = event.target.value
+            }
+        }
+    })
+</script>

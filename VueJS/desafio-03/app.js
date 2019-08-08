@@ -11,7 +11,7 @@ new Vue({
     },
 
     watch: {
-        resultado(novo, antigo) {
+        resultado() {
             setTimeout(() => {
                 this.valor = 0
             }, 5000)

@@ -1,0 +1,114 @@
+<script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <!-- alterar dados da pagina -->
+    <input type="text" v-on:input="alterarTitulo">
+    <p>{{ titulo }}</p>
+
+    <!-- two-way data bind -->
+    bind:value e on:input
+    <input type="text" v-bind:value="titulo" v-on:input="titulo = $event.target.value">
+    v-model
+    <input type="text" v-model="titulo">
+
+    <!-- botão dispara evento -->
+    <p>{{ contador }}</p>
+    <button v-on:click="somar(5, $event)">Somar 5</button>
+
+    <!-- manipulando direto no tamplate -->
+    <p>{{ contador * 2 }}</p>
+    <p>{{ contador > 15 ? 'Estourou os 15' : 'Tá Fraquinho' }}</p>
+    <button v-on:click="somar(5, $event)">Somar 5</button>
+
+    <!-- onmouse over -->
+    <p v-on:mousemove="atualizarXY">
+        Mouse {{x}} | {{y}}
+        <!-- não registra o evento -->
+        <span v-on:mousemove.stop="">PARA AQUI</span>
+    </p>
+
+    <!-- bloqueia evento do mouse -->
+    <a v-on:click.prevent="" href="https://www.google.com.br" style="cursor:not-allowed">Google</a>
+    <hr>
+
+    <!-- exibir alerta ao pressionar a tecla enter -->
+    Alerta Enter<input type="text" v-on:keyup.enter="exibirAlerta"><br />
+
+    <!-- button[v-on:click=aumentar] Atalho para o debaixo -->
+    <!-- resolvendo problema de chamar metodo que não precisa com o computed -->
+    <!-- não precisa chamar como método(com parenteses) apenas como propriedade(sem parenteses) -->
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="contador3++">Aumentar 2</button>
+    <button @click="diminuir">Diminuir</button>
+    <p>Contador: {{ contador2 }} | {{ contador3 }} </p>
+    <p>Resultado: {{ resultado }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: ('#app'),
+
+        data: {
+            contador: 0,
+            contador2: 0,
+            contador3: 0,
+            x: 0,
+            y: 0,
+            titulo: 'Usando VueJS!',
+            // resultado: ''
+        },
+
+        computed: {
+            resultado() {
+                console.log('foi executado o computed')
+                return this.contador2 >= 5 ? 'Maior ou igual 5' : 'Menor 5'
+            }
+        },
+
+        watch: {
+            contador2(novo, antigo) {
+                setTimeout(() => {
+                    this.contador2 = 0
+                }, 2000)
+            }
+        },
+
+        methods: {
+            aumentar() {
+                this.contador2++
+                // this.resultado = this.contador2 >= 5 ? 'Maior ou igual 5' : 'Menor 5'
+            },
+            diminuir() {
+                this.contador2--
+                // this.resultado = this.contador2 >= 5 ? '>= 5' : '< 5'
+            },
+            // resultado() {
+            //     console.log('foi executado')
+            //     return this.contador2 >= 5 ? 'Maior ou igual 5' : 'Menor 5'
+            // },
+            somar(passo, e) {
+                console.log(passo, e)
+                this.contador += passo
+            },
+            atualizarXY(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            alterarTitulo(event) {
+                this.titulo = event.target.value
+            },
+            exibirAlerta() {
+                alert('Alerta alertador do alert')
+            },
+            naoNavegar(event) {
+                // mesmo resultado de .prevent
+                // event.preventDefault()
+            },
+            parar(event) {
+                // mesmo resultado de .stop
+                // event.stopPropagation()
+            }
+        }
+    })
+</script>

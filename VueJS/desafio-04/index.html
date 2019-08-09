@@ -15,14 +15,14 @@
 	<!-- 2) Crie duas classes CSS e associe a div usando a
 		sintaxe de array -->
 	<h2>#02</h2>
-	<div>Estou sem classe CSS :(</div>
+	<div :class="['criada1', 'criada2']">Estou sem classe CSS :(</div>
 
 	<!-- 3) Aplique na div abaixo a classe informada pelo usuário
 		(crie classe CSS de exemplo). -->
 	<h2>#03</h2>
 	<div>
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="digitado">
+		<div :class="digitado"></div>
 	</div>
 
 	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e

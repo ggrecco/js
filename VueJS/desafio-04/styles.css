@@ -13,3 +13,17 @@
 	background-color: gray;
 	width: 50px !important;
 }
+
+.criada1 {
+	color: red;
+}
+
+.criada2 {
+	text-align: right;
+}
+
+.bloco {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}

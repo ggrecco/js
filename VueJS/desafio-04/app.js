@@ -1,7 +1,8 @@
 new Vue({
 	el: '#desafio',
 	data: {
-		meuCSS: ''
+		meuCSS: '',
+		digitado: 'hue'
 	},
 	methods: {
 		iniciarEfeito() {

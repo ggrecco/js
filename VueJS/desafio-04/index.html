@@ -29,17 +29,17 @@
     outra classe usando o valor true/false (crie classes CSS de exemplo). -->
 	<h2>#04</h2>
 	<div>
-		<input type="text">
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="digitado2">
+		<input type="text" v-model="digitado3">
+		<div :class="[digitado2, digitado3 ]"></div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
     Associe os estilos a div abaixo  -->
 	<h2>#05</h2>
 	<div>
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="cor">
+		<div class="caixa" :style="{'color': cor}"></div>
 	</div>
 
 	<!-- 6) Crie uma barra de progresso simples com setInterval 

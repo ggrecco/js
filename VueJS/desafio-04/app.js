@@ -2,7 +2,10 @@ new Vue({
 	el: '#desafio',
 	data: {
 		meuCSS: '',
-		digitado: 'hue'
+		digitado: '',
+		digitado2: 'b0',
+		digitado3: false,
+		cor: 'red'
 	},
 	methods: {
 		iniciarEfeito() {

@@ -22,8 +22,24 @@
 	text-align: right;
 }
 
-.bloco {
+.b0 {
 	width: 100px;
 	height: 100px;
 	border: 1px solid black;
+}
+.b1 {
+	width: 100px;
+	height: 100px;
+	border: 100px solid green;
+}
+.b2 {
+	width: 100px;
+	height: 100px;
+	border: 10px solid red;
+}
+
+.caixa {
+	width: 100px;
+	height: 100px;
+	border: 10px solid;
 }

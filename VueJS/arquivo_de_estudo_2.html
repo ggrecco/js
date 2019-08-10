@@ -1,0 +1,61 @@
+<meta charset="UTF-8">
+<script src="http://unpkg.com/vue"></script>
+
+<div id="app">
+    <!-- tag para não renderizar uma nova div  -->
+    <!-- usando condiconais if e else -->
+    <template v-if="logado">
+        <p>Usuário logado: {{ nome }}</p>
+        <p>Perfil: Admin</p>
+    </template>
+    <p v-else-if="anonimo">Navegando como Anonimo</p>
+    <p v-else>Nenhum usuário logado</p>
+    <button @click="logado = !logado">{{ logado ? 'Sair' : 'Entrar' }}</button>
+    <input type="checkbox" v-model="anonimo">
+    <hr>
+    <!-- Usando listas -->
+    <!-- renderizando elementos e adicionando atributos -->
+    <ul>
+        <li v-for="cor in cores" :id='cor' :value='cor'> {{ cor }} </li>
+    </ul>
+    <hr>
+    <!-- priemiro valor segundo é o indice associado ao valor -->
+    <ul :style="{listStyle: ul}">
+        <li v-for="(cor, i) in cores"> {{ i + 1 }}) {{ cor }} </li>
+    </ul>
+</div>
+<hr>
+<!-- exibe no código fonte, ao contrario do v-if que somo com os dado -->
+<footer v-show='logado'>
+    Desenvolvido para vc
+</footer>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            nome: 'GGrecco',
+            logado: false,
+            anonimo: false,
+            ul: 'none',
+            cores: ['vermleho', 'verde', 'amarelo', 'azul'],
+            pessoa: [{
+                nome: 'Karim',
+                idade: 36,
+                peso: '79'
+            }, {
+                nome: 'Gustavo',
+                idade: 34,
+                peso: '84'
+            }, {
+                nome: 'Darth',
+                idade: 2,
+                peso: '5'
+            }, {
+                nome: 'Vader',
+                idade: 2,
+                peso: '8'
+            }, ]
+        }
+    })
+</script>

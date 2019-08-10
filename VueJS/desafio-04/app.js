@@ -1,18 +1,23 @@
 new Vue({
 	el: '#desafio',
 	data: {
-		meuCSS: '',
+		meuCSS: 'destaque',
 		digitado: '',
 		digitado2: 'b0',
 		digitado3: false,
 		cor: 'red',
 		porcento: 0,
-		nome_btn: 'Iniciar'
+		nome_btn: 'Iniciar',
+		estilo5: {
+			width: '100px',
+			height: '100px',
+		}
 	},
 	methods: {
 		iniciarEfeito() {
-			setInterval(() => { this.meuCSS = 'encolher' }, 3000),
-				setInterval(() => { this.meuCSS = 'destaque' }, 5000)
+			setInterval(() => {
+				this.meuCSS = this.meuCSS == 'destaque' ? 'encolher' : 'destaque'
+			}, 3000)
 		},
 		iniciarProgresso() {
 			this.porcento = 0;

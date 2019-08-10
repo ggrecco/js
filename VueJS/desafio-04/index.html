@@ -39,7 +39,7 @@
 	<h2>#05</h2>
 	<div>
 		<input type="text" v-model="cor">
-		<div class="caixa" :style="{'color': cor}"></div>
+		<div :style="[estilo5, {backgroundColor: cor}]"></div>
 	</div>
 
 	<!-- 6) Crie uma barra de progresso simples com setInterval 

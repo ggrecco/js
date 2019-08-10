@@ -5,7 +5,9 @@ new Vue({
 		digitado: '',
 		digitado2: 'b0',
 		digitado3: false,
-		cor: 'red'
+		cor: 'red',
+		porcento: 400,
+		nome_btn: 'Iniciar'
 	},
 	methods: {
 		iniciarEfeito() {
@@ -13,7 +15,17 @@ new Vue({
 				setInterval(() => { this.meuCSS = 'destaque' }, 5000)
 		},
 		iniciarProgresso() {
-
+			let contador = setInterval(() => {
+				if (this.porcento == '500') {
+					clearInterval(contador)
+					this.nome_btn = 'Reiniciar'
+					// console.log(contador)
+					// console.log(this.porcento)
+					// console.log('esse código finaliza o contador')
+				} else {
+					this.porcento++;
+				}
+			}, 10)
 		}
 	}
 })

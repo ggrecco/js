@@ -45,9 +45,9 @@
 	<!-- 6) Crie uma barra de progresso simples com setInterval 
     e binding de estilo. -->
 	<h2>#06</h2>
-	<div>
-		<button @click="iniciarProgresso">Iniciar</button>
-		<div></div>
+	<div class="progresso">
+		<div :style="{'width': porcento}"></div><br/><br/>
+		<button @click="iniciarProgresso">{{nome_btn}}</button><br/><br/>
 	</div>
 </div>
 <script src="app.js"></script>

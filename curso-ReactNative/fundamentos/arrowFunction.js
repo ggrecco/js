@@ -22,3 +22,15 @@ console.log(ola())
 
 ola = () => 'Hello World!'
 console.log(ola())
+
+// this sempre referenciado na mesma função
+function Pessoa() {
+    this.idade = 0
+
+    setInterval(() => {
+        this.idade++
+            console.log(this.idade)
+    }, 1000)
+}
+
+new Pessoa

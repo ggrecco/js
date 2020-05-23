@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ggrecco/js#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "vue": "^2.6.11"
   }
 }

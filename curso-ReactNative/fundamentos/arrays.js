@@ -10,7 +10,7 @@ aprovados.forEach(function(nome, indice) {
     console.log(`${indice + 1}. ${nome}`)
 })
 
-// concertendo um array para JSON e buscando um valor específico
+// convertendo um array para JSON e buscando um valor específico
 const carrinho = [
     '{"nome": "Borracha", "preco": "3.45" }',
     '{"nome": "Caderno", "preco": "13.90" }',

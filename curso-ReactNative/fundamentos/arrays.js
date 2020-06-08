@@ -23,3 +23,5 @@ const sohPreco = produto => produto.preco
 
 const resultado = carrinho.map(newObjeto).map(sohPreco)
 console.log(resultado)
+
+// testando github

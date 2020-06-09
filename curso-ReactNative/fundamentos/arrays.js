@@ -24,4 +24,17 @@ const sohPreco = produto => produto.preco
 const resultado = carrinho.map(newObjeto).map(sohPreco)
 console.log(resultado)
 
-// testando github
+// treinando filter
+
+const produtos = [
+    { name: 'Caneta', value: '2' },
+    { name: 'Caderno', value: '8' },
+    { name: 'Borracha', value: '15' },
+    { name: 'SeiLah', value: '20' }
+
+]
+
+const nome = produto => produto.name
+const valor = produto => produto.value >= 15
+
+console.log(produtos.filter(nome).filter(valor))

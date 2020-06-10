@@ -5,13 +5,15 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon",
+        "production": "pm2 start index.js --name exercicios-express",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "pm2": "^4.4.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"

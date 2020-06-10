@@ -1,6 +1,65 @@
 const express = require('express')
 const app = express()
 
-app.listen(3000, () => {
+const saudacao = require('./saudacaoMid.js')
+
+app.use(saudacao("Gustavo"))
+
+//requisição e resposta
+// direciona todas as requisições para essa função
+// por não tem uma URL setada
+app.use((req, res, next) => {
+    console.log('foi chamada.')
+    next()
+})
+
+
+app.get('/cliente/relatorio', (req, res) => {
+    res.send(`Cliente relatorio: completo = ${req.query.completo} ano = ${req.query.ano}`)
+})
+
+
+app.get('/cliente/:id', (req, res) => {
+    res.send(`Cliente ${req.params.id} selecionado`)
+})
+
+
+app.use('/ola', (req, res) => {
+    res.send("Hello <b>World!</b>")
+})
+
+
+app.get('/opa', (req, res, next) => {
+    res.send("OP!")
+    next()
+})
+
+
+app.get('/opa', (req, res) => {
+    console.log("Foi chamado, entao tem o next")
+})
+
+
+app.get('/testJ', (req, res) => {
+    res.json({
+        nome: "Gustavo",
+        idade: 120,
+        endereco: 'casa'
+    })
+})
+
+
+app.get('/testJA', (req, res) => {
+    res.json([
+        { id: 1, name: "Gustavo", position: 1 },
+        { id: 2, name: "Karim", position: 2 },
+        { id: 3, name: "Vader", position: 3 },
+        { id: 4, name: "Darth", position: 4 },
+
+    ])
+})
+
+
+app.listen(8080, () => {
     console.log('Backend executando2...')
 })

@@ -1,8 +1,14 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 
-const saudacao = require('./saudacaoMid.js')
+const saudacao = require('./saudacaoMid')
 
+
+app.use(bodyParser.text())
+app.use(bodyParser.json())
+
+// usando função importada de saudacaiMid.js
 app.use(saudacao("Gustavo"))
 
 //requisição e resposta
@@ -16,6 +22,15 @@ app.use((req, res, next) => {
 
 app.get('/cliente/relatorio', (req, res) => {
     res.send(`Cliente relatorio: completo = ${req.query.completo} ano = ${req.query.ano}`)
+})
+
+
+app.post('/corpo', (req, res) => {
+    res.send(req.body)
+        // acessando o elemento idade 
+    console.log(req.body.idade)
+        // visualizanod todos os elementos json enviados
+    console.log(JSON.stringify(req.body))
 })
 
 

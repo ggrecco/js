@@ -3,6 +3,15 @@ const app = express()
 const bodyParser = require('body-parser')
 
 const saudacao = require('./saudacaoMid')
+const usuarioApi = require('./api/usuario')
+
+require('./api/produto')(app, 'com param!')
+
+
+app.post('/usuario', usuarioApi.salvar)
+
+// expecificando uma chave diferente para acessar a função
+app.get('/usuario', usuarioApi.obt)
 
 
 app.use(bodyParser.text())

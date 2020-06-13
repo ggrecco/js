@@ -5,6 +5,8 @@ import Simples from './componentes/Simples'
 import ParImpar from './componentes/ParImpar'
 import Inverter, {MegaSena} from './componentes/Multi'
 
+
+
 export default createDrawerNavigator({
     MegaSena: {
         screen: () => <MegaSena />,
@@ -15,7 +17,7 @@ export default createDrawerNavigator({
     },
     ParImpar: {
         screen: () => <ParImpar numero={30} />,
-        navigationOptions: {title: 'Par & Ímpar'}
+        navigationOptions: {title: 'Par e Impar'}
     },
     Simples: {
         screen: () => <Simples texto="Simples" nome="Gustavo" />

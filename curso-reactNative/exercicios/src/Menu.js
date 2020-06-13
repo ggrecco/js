@@ -3,8 +3,7 @@ import {createDrawerNavigator} from 'react-navigation'
 
 import Simples from './componentes/Simples'
 import ParImpar from './componentes/ParImpar'
-import Inverter, {MegaSena} from './componentes/Multi'
-
+import {Inverter, MegaSena} from './componentes/Multi'
 
 
 export default createDrawerNavigator({

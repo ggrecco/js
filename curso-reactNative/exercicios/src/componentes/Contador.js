@@ -15,7 +15,7 @@ export default class Contador extends Component {
     }
 
     limpar = () => {
-        this.setState({ numero: this.props.numeroInicial })
+        this.setState({ numero: this.props.numero })
     }
 
     render() {

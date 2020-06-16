@@ -18,5 +18,14 @@ export default StyleSheet.create({
         marginVertical: 5,
         borderRadius: 10,
         fontSize: 12,
+    },
+    input: {
+        height: 70,
+        fontSize: 40,
+        borderCasolor: "gray",
+        borderWidth: 1
+    },
+    fonte40: {
+        fontSize: 40
     }
 })

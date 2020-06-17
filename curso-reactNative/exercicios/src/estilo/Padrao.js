@@ -22,7 +22,7 @@ export default StyleSheet.create({
     input: {
         height: 70,
         fontSize: 40,
-        borderCasolor: "gray",
+        borderColor: "gray",
         borderWidth: 1
     },
     fonte40: {

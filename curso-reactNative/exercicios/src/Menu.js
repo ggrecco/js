@@ -13,10 +13,14 @@ import {TextoSincronizado} from './componentes/ComunicacaoIndireta'
 // import ListaFlex from './componentes/ListaFlex'
 import Flex from './componentes/Flex'
 import FlexDirectionBasic from './componentes/FlexDirection'
+import FlatListApp from './componentes/FlatList'
 
 
 
 export default createDrawerNavigator({
+    FlatListApp: {
+        screen: FlatListApp
+    },
     FlexDirectionBasic:{
         screen: FlexDirectionBasic
     },

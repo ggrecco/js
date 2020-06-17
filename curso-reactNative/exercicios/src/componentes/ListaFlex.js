@@ -46,7 +46,7 @@ export default props => {
     return (
         <ScrolView>
             <FlatList data={alunos} renderItem={renderItem}
-                      keyExtractor={(_, index) => `${index}`} />
+                      keyExtractor={item => item.id} />
         </ScrolView>
     )
 }

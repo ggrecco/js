@@ -8,11 +8,11 @@ export default props => {
 
     return(
     <View style={styles.container}>
-        <View style={styles.coreMine} />
-        <View style={styles.line } />  
-        <View style={[styles.line,{ transform: [{rotate: '45deg'}]} ]} />     
-        <View style={[styles.line,{ transform: [{rotate: '90deg'}]}]} />     
-        <View style={[styles.line,{ transform: [{rotate: '135deg'}]}]} />  
+        <View style={[styles.coreMine, props.exploded ? styles.explodida : null]} />
+        <View style={[styles.line, props.exploded ? styles.explodida : null ] } />  
+        <View style={[styles.line,{ transform: [{rotate: '45deg'}]}, props.exploded ? styles.explodida : null ]} />     
+        <View style={[styles.line,{ transform: [{rotate: '90deg'}]}, props.exploded ? styles.explodida : null ]} />     
+        <View style={[styles.line,{ transform: [{rotate: '135deg'}]}, props.exploded ? styles.explodida : null]} />  
         
     </View>
     )
@@ -33,5 +33,8 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         backgroundColor: 'black',
     },
+    explodida:{
+        backgroundColor: 'yellow'
+    }
 
 })

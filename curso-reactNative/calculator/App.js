@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { StyleSheet,View } from 'react-native';
 
 import Button from './src/components/Buttom'
 import Display from './src/components/Display'
@@ -25,7 +18,6 @@ export default class App extends Component {
   state = { ...initialState }
 
   addDigit = n => {
-    //valida ter zero apenas depois de um numero e concatena os numeros digitados
     const clearDisplay = this.state.displayValue === '0' || this.state.clearDisplay
     //valida utilizar apenas 1 ponto
     if (n === '.' && !clearDisplay && this.state.displayValue.includes('.')){

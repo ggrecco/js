@@ -3,6 +3,8 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native'
 import todayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import 'moment/locale/pt-br'
+import commonStyles from '../commonStyles'
+import Task from '../components/Task'
 
 
 export default class TaskList extends Component {
@@ -13,12 +15,13 @@ export default class TaskList extends Component {
             <View style={styles.container}>
                 <ImageBackground style={styles.background} source={todayImage}>
                     <View style={styles.titleBar}>
-                        <Text>Hoje</Text>
-                        <Text>{today}</Text>
+                        <Text style={styles.title}>Hoje</Text>
+                        <Text style={styles.subTitle}>{today}</Text>
                     </View>
                 </ImageBackground>
                 <View style={styles.taskList}>
-                    <Text>TaskList</Text>
+                    <Task desc="tarefa 01" estimateAt={new Date()} doneAt={new Date()} />
+                    <Task desc="tarefa 02" estimateAt={new Date()} doneAt={null}/>
                 </View>
             </View>
         )
@@ -39,5 +42,18 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
     },
-    
+    title: {
+        fontFamily: commonStyles.fontFamily,
+        color: commonStyles.colors.secondary,
+        fontSize: 50,
+        marginLeft: 20,
+        marginBottom: 20
+    },
+    subTitle: {
+        fontFamily: commonStyles.fontFamily,
+        color: commonStyles.colors.secondary,
+        fontSize: 25,
+        marginLeft: 20,
+        marginBottom: 25
+    }
 })

@@ -30,8 +30,7 @@
         }
 
         function criarTabela(estados) {
-
-            const lista = estados.map(estado => {
+            const linhas = estados.map(estado => {
                 const tdId = document.createElement('td')
                 tdId.innerHTML = estado.id
 
@@ -61,7 +60,6 @@
             sucesso(resposta) {
                 const estados = JSON.parse(resposta)
                 criarTabela(estados)
-
             },
             erro(e) {
                 const msg = document.createTextNode(`${e.code} : ${e.text}`)

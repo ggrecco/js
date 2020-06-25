@@ -43,13 +43,13 @@
 
         document.querySelector('input[type=file]').onchange = e => {
             const formData = new FormData()
-            formData.append(e.target.name, e.target.file[0]) //e.target é o name='arquivo'
+            formData.append(e.target.name, e.target.file[0])
 
             ajaxUpload({
                 url: 'upload',
                 formData: formData,
                 progresso(dados) {
-                    const progresso = document.querySelector('.progresso') //ponto pois é classe
+                    const progresso = document.querySelector('.progresso')
                     progresso.innerHTML = JSON.stringify(dados)
                 }
             })

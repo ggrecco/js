@@ -43,7 +43,7 @@
 
         document.querySelector('input[type=file]').onchange = e => {
             const formData = new FormData()
-            formData.append(e.taget.name, e.target.file[0]) //e.target é o name='arquivo'
+            formData.append(e.target.name, e.target.file[0]) //e.target é o name='arquivo'
 
             ajaxUpload({
                 url: 'upload',

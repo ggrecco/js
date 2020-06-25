@@ -37,22 +37,22 @@
                     })
                 }
             }
-            xhr.open('post', config.url, true)
+            xhr.open("post", config.url, true)
             xhr.send(config.formData)
         }
 
-        document.querySelector('input[type=file').onchange = e => {
+        document.querySelector('input[type=file]').onchange = e => {
             const formData = new FormData()
             formData.append(e.taget.name, e.target.file[0]) //e.target é o name='arquivo'
-        }
 
-        ajaxUpload({
-            url: 'upload',
-            formData: formData,
-            progressi(dados) {
-                const progresso = document.querySelector('.progresso') //ponto pois é classe
-                progresso.innerHTML = JSON.stringify(dados)
-            }
-        })
+            ajaxUpload({
+                url: 'upload',
+                formData: formData,
+                progresso(dados) {
+                    const progresso = document.querySelector('.progresso') //ponto pois é classe
+                    progresso.innerHTML = JSON.stringify(dados)
+                }
+            })
+        }
     </script>
 </body>

@@ -1,15 +1,16 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
-const multer = require('multer')
 
 
 app.use(express.static('.')) // provê todos os arquivos staticos da pasta
 app.use(bodyParser.urlencoded({ extended: true })) //lê os dados de um formulario e transforma em obj
 app.use(bodyParser.json()) //le a requisição e traduz para JSON
 
+const multer = require('multer')
+
 const storage = multer.diskStorage({
-    destinatio: function(req, file, callback) {
+    destination: function(req, file, callback) {
         callback(null, './upload')
     },
     filename: function(req, file, callback) {

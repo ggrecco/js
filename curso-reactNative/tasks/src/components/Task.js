@@ -24,7 +24,6 @@ export default props => {
                 <Text style={[styles.desc, doneOrNotStyle ]}>{props.desc}</Text>
                 <Text style={styles.date}>{formattedDate}</Text>
             </View>
-           
         </View>
     )
 }

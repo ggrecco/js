@@ -17,7 +17,7 @@ export default class TaskList extends Component {
             doneAt: new Date(),
         },{
             id: Math.random(),
-            desc: "Comprar livro",
+            desc: "Recolher roupa",
             estimateAt: new Date(),
             doneAt: null,
         }],
@@ -47,7 +47,7 @@ export default class TaskList extends Component {
                 <View style={styles.taskList}>
                     <FlatList data={this.state.tasks}
                         keyExtractor={item => `${item.id}`}
-                        renderItem={({item}) => <Task {...item} toggleTask={this.toggleTask}/>}
+                        renderItem={({item}) => <Task {...item} toggleTask={this.toggleTask} />}
                     />
                 </View>
             </View>

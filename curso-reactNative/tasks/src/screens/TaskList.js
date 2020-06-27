@@ -1,5 +1,14 @@
 import React, {Component} from 'react'
-import { View, Text, ImageBackground, StyleSheet, FlatList } from 'react-native'
+import { View, 
+    Text, 
+    ImageBackground, 
+    StyleSheet, 
+    FlatList, 
+    TouchableOpacity,
+    Platform,
+} from 'react-native'
+
+import Icon from 'react-native-vector-icons/FontAwesome'
 import todayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import 'moment/locale/pt-br'
@@ -10,6 +19,7 @@ import Task from '../components/Task'
 export default class TaskList extends Component {
 
     state = {
+        showDoneTasks : true,
         tasks: [{
             id: Math.random(),
             desc: "Comprar livro",
@@ -21,6 +31,10 @@ export default class TaskList extends Component {
             estimateAt: new Date(),
             doneAt: null,
         }],
+    }
+
+    toggleFilter = () => {
+        this.setState({showDoneTasks : !this.state.showDoneTasks}) //inverte o bool de showDoneTasks
     }
 
     toggleTask = taskId => {
@@ -39,6 +53,12 @@ export default class TaskList extends Component {
         return (
             <View style={styles.container}>
                 <ImageBackground style={styles.background} source={todayImage}>
+                    <View style={styles.iconBar}>
+                        <TouchableOpacity onPress={this.toggleFilter}>
+                            <Icon name={this.state.showDoneTasks ? "eye" : "eye-slash"}
+                            size={20} color={commonStyles.colors.secondary}/> 
+                        </TouchableOpacity>
+                    </View>
                     <View style={styles.titleBar}>
                         <Text style={styles.title}>Hoje</Text>
                         <Text style={styles.subTitle}>{today}</Text>
@@ -82,5 +102,11 @@ const styles = StyleSheet.create({
         fontSize: 25,
         marginLeft: 20,
         marginBottom: 25
+    },
+    iconBar: {
+        flexDirection: 'row',
+        marginHorizontal: 20,
+        marginTop: Platform.OS === 'ios' ? 45 : 10,
+        justifyContent: 'flex-end',
     }
 })
